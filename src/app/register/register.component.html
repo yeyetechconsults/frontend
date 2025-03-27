@@ -1,0 +1,115 @@
+<div class="row p-0 m-0 mt-5 bg-light">
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <div class="text-center">
+        <h1 class="text-dark p-3">YEYE SECURE</h1>
+        <i class="bi bi-shield-lock-fill text-dark" style="font-size: 7rem;"></i>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <!-- Register Form -->
+      <div class="register-box d-flex justify-content-center align-items-center" style="height: 80vh;">
+        <div class="p-4 shadow rounded bg-white" style="width: 90%; max-width: 400px;">
+          <h3 class="text-center text-dark">REGISTER</h3>
+          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
+            <!-- Name Field -->
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter your name"
+                [(ngModel)]="name"
+                name="name"
+                required
+                #nameField="ngModel"
+              />
+              <label for="name">Name</label>
+              <div *ngIf="nameField.invalid && nameField.touched" class="text-danger">
+                Name is required.
+              </div>
+            </div>
+  
+            <!-- Email Field -->
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                [(ngModel)]="email"
+                name="email"
+                required
+                #emailField="ngModel"
+              />
+              <label for="email">Email</label>
+              <div *ngIf="emailField.invalid && emailField.touched" class="text-danger">
+                Email is required.
+              </div>
+            </div>
+  
+            <!-- Phone Field -->
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                placeholder="Enter your phone number"
+                [(ngModel)]="phone"
+                name="phone"
+                required
+                #phoneField="ngModel"
+              />
+              <label for="phone">Phone</label>
+              <div *ngIf="phoneField.invalid && phoneField.touched" class="text-danger">
+                Phone is required.
+              </div>
+            </div>
+  
+            <!-- Password Field -->
+            <div class="form-floating mb-3 position-relative">
+              <input
+                [type]="passwordVisible ? 'text' : 'password'"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                [(ngModel)]="password"
+                name="password"
+                required
+                #passwordField="ngModel"
+              />
+              <label for="password">Password</label>
+              <div *ngIf="passwordField.invalid && passwordField.touched" class="text-danger">
+                Password is required.
+              </div>
+              <i
+                class="bi"
+                [ngClass]="passwordVisible ? 'bi-eye-slash' : 'bi-eye'"
+                style="position: absolute; top: 50%; right: 10px; cursor: pointer;"
+                (click)="togglePasswordVisibility()"
+              ></i>
+            </div>
+  
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="btn btn-dark w-100"
+              [disabled]="registerForm.invalid"
+            >
+              Register
+            </button>
+  
+            <!-- Underline text below button -->
+            <p class="text-center mt-3">
+              <a href="/login" class="text-dark text-decoration-underline">Login instead?</a>
+            </p>
+  
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="text-danger mt-3">
+              {{ errorMessage }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,47 @@
+<div class="project-container">
+    <h1 class="p-3 text-center">
+      Projects fit for Investment <span class="text-success">({{ totalProjects }})</span>
+    </h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Search projects..." [(ngModel)]="searchTerm" />
+      <button (click)="searchProjects()">Search</button>
+      <button *ngIf="searchTerm" class="btn-dark" (click)="clearSearch()">x</button>
+    </div>
+  
+    <div class="project-list">
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Preview</th>
+            <th>PDF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of paginatedProjects">
+            <td><span class="text-primary h6 fw-bold">{{ project.title }}</span></td>
+            <td>{{ project.description | slice:0:20 }}...</td>
+            <td>{{ project.category }}</td>
+            <td>
+              <button class="btn text-light btn-dark btn-sm py-1 px-3" (click)="previewProject(project)">
+                <i class="bi bi-eye"></i>
+              </button>
+            </td>
+            
+            
+         <!--------- <td><a [href]="project.pdfPath" target="_blank">View Full PDF</a></td>----->  
+            <td><a (click)="viewproject(project.pdfPath)" >View Full PDF</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="pagination-controls">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+  

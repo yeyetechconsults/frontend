@@ -1,0 +1,17 @@
+/* Disable selection of text */
+body, #pdf-container, canvas {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+}
+
+/* Disable right-click on the canvas */
+#pdf-canvas {
+  pointer-events: none; /* Disable interaction */
+}
+
+/* Invisible overlay to prevent interaction */
+#overlay {
+  pointer-events: all; /* Enable overlay to block any interaction */
+  background: rgba(255, 255, 255, 0.5); /* Optional: slight opacity for visibility */
+}

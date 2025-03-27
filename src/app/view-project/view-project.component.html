@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <p class="w-100 my-3">
+       <button class="m-1 btn btn-danger mt-3 float-end" (click)="buyProject()">Buy Project</button>
+       <button class="btn btn-dark mt-3 float-end m-1" routerLink="/projects">
+         <i class="bi bi-arrow-left mx-2"></i> Other Projects
+       </button>  
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h2>{{ project?.title }}</h2>
+      <p><strong>Category:</strong> {{ project?.category }}</p>
+      <p>{{ project?.description }}</p>
+    </div>
+
+    <div class="col-md-8">
+      <div id="pdf-container" style="position: relative;">
+        <p *ngIf="!safePdfUrl">Loading PDF...</p>
+        
+        <!-- PDF Canvas for custom rendering -->
+        <canvas id="pdf-canvas" style="pointer-events: none;" (contextmenu)="disableRightClick($event)"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <p class="w-100 my-3"></p>
+  </div>
+</div>

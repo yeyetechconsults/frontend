@@ -1,0 +1,42 @@
+<div class="row p-3 bg-warning">
+  <div class="col-auto">
+    <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+      <i class="bi bi-grid"></i>
+    </button>
+  </div>
+
+  <div class="col text-end">
+    <i class="bi bi-person me-2"></i>
+    <span>Your Account</span>
+  </div>
+  <div class="col text-end">
+    <a  class="btn btn-danger" (click)="logout()">  
+      <i class="me-2 bi bi-box-arrow-right"></i>
+      <span>Logout</span>
+    </a>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-unstyled text-light">
+      <li *ngIf="role === 'admin'"><a (click)="newproject(); " class="d-block py-2 text-dark"><i class="bi bi-plus mx-2" ></i> New Project</a></li>
+      <li><a (click)="projects(); " class="d-block py-2 text-dark"><i class="bi bi-list-task mx-2"></i> Projects</a></li>
+      <li *ngIf="role === 'admin'"><a (click)="clients(); " class="d-none py-2 text-dark"><i class="bi bi-person mx-2"></i> Clients</a></li>           
+      <li><a (click)="projectrequests(); " class="d-block py-2 text-dark"><i class="bi bi-layers mx-2"></i> Requests</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <main class="px-3 py-4">
+   
+   <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </main>
+</div>

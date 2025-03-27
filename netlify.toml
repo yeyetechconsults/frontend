@@ -1,0 +1,9 @@
+[build]
+  command = "ng build --configuration production"
+  publish = "dist/yeye/browser"
+
+[[redirects]]
+  from = "/functions/*"
+  to = "/functions/:splat"
+  status = 200
+  force = true
