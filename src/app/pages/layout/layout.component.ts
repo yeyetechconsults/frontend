@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, AdminComponent, FooterComponent],
+  imports: [RouterOutlet, CommonModule, FooterComponent],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })

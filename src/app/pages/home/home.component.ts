@@ -11,7 +11,7 @@ import emailjs from 'emailjs-com';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule, LoginComponent, HttpClientModule],
+  imports: [CommonModule,  HttpClientModule],
 })
 export class HomeComponent {
   showLogin: boolean = true;

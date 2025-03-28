@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HttpClientModule],  // Import HttpClientModule
+  imports: [RouterOutlet, HttpClientModule],  // Import HttpClientModule
   providers: [],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

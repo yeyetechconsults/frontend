@@ -9,7 +9,7 @@ import { FooterComponent } from "../../footer/footer.component";
 @Component({
   selector: 'app-general-layout',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, LoginComponent, FooterComponent],
+  imports: [RouterOutlet,  FooterComponent],
   templateUrl: './general-layout.component.html',
   styleUrl: './general-layout.component.css'
 })
